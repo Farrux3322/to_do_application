@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:to_do_application/ui/utils/colors.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,9 +13,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: Text("Home Screen"),
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarColor: AppColors.background),
+        title: const Text("Home Screen"),
         centerTitle: true,
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:to_do_application/ui/sign_in_screen/sign_in_screen.dart';
 import 'package:to_do_application/ui/splash_screen/splash_screen.dart';
+import 'package:to_do_application/ui/utils/theme.dart';
 
 Future<void> main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        ),
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.dark,
         home: const SplashScreen(),
       );},
     );
