@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../utils/colors.dart';
 
@@ -31,12 +32,18 @@ class _PlanningScreenState extends State<PlanningScreen> {
               padding:  EdgeInsets.only(
                 top: 300.h,
               ),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: Icon(
-                  CupertinoIcons.text_badge_checkmark,
-                  size: 100,
-                  color: AppColors.white,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 350,right: 29),
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: ZoomTapAnimation(
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: AppColors.C_0EA5E9),
+                      child: Icon(Icons.add,color: AppColors.white,),
+                    ),
+                  )
                 ),
               ),
             ),

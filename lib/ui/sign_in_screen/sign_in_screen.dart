@@ -7,7 +7,6 @@ import 'package:login_screen_homework/ui/widgets/global_social.dart';
 import 'package:login_screen_homework/ui/widgets/global_textfield.dart';
 
 
-import '../on_boarding_screen/on_boarding_screen.dart';
 import '../utils/colors.dart';
 import '../utils/images.dart';
 

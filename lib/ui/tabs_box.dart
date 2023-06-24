@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:login_screen_homework/ui/planning_screen/planning_screen.dart';
 import 'package:login_screen_homework/ui/settings_screen/settings.dart';
 import 'package:login_screen_homework/ui/sign_in_screen/sign_in_screen.dart';
 import 'package:login_screen_homework/ui/utils/colors.dart';
@@ -23,8 +24,7 @@ class _TabsBoxState extends State<TabsBox> {
   @override
   void initState() {
     screens.add(HomeScreen());
-    screens.add(SignIn());
-    // screens.add(PlanningScreen());
+    screens.add(PlanningScreen());
     screens.add(CalendarScreen());
     screens.add(SettingsScreen());
     super.initState();
