@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:to_do_application/ui/utils/colors.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -12,9 +13,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: Text("Settings Screen"),
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarColor: AppColors.background),
+        title: Text(
+          "Settings Screen",
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         centerTitle: true,
       ),
     );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do_application/ui/on_boarding_screen/widgets/center_dots.dart';
 import 'package:to_do_application/ui/on_boarding_screen/widgets/page_item.dart';
 import 'package:to_do_application/ui/sign_in_screen/sign_in_screen.dart';
-import 'package:to_do_application/ui/tabs_box.dart';
 import 'package:to_do_application/ui/utils/colors.dart';
 import 'package:to_do_application/ui/utils/images.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
@@ -21,7 +21,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      appBar: AppBar(
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarColor: AppColors.background),
+        toolbarHeight: 0,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 92),
         child: Center(
@@ -75,25 +79,29 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           ),
                           pageIndex != 3
                               ? ZoomTapAnimation(
-                            onTap: (){
-                              pageIndex++;
-                            },
-                                child: Image.asset(
+                                  onTap: () {
+                                    pageIndex++;
+                                  },
+                                  child: Image.asset(
                                     AppImages.nextButton,
                                     width: 90.w,
                                     height: 90.h,
                                   ),
-                              )
+                                )
                               : ZoomTapAnimation(
-                            onTap: (){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const SignInScreen()));
-                            },
-                                child: Image.asset(
+                                  onTap: () {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) =>
+                                                const SignInScreen()));
+                                  },
+                                  child: Image.asset(
                                     AppImages.doneButton,
                                     width: 90.w,
                                     height: 90.h,
                                   ),
-                              ),
+                                ),
                         ],
                       ),
                     ],

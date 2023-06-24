@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:to_do_application/ui/utils/colors.dart';
 
 class TasksScreen extends StatefulWidget {
@@ -12,9 +13,10 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: Text("Tasks Screen"),
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarColor: AppColors.background),
+        title: const Text("Tasks Screen"),
         centerTitle: true,
       ),
     );

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../utils/colors.dart';
-
 class PageItem extends StatelessWidget {
   const PageItem({Key? key, required this.imagePath, required this.title}) : super(key: key);
 
@@ -15,18 +13,14 @@ class PageItem extends StatelessWidget {
       Image.asset(
         imagePath,
         width: 411.w,
-        height: 297.h,
+        height: 287.h,
       ),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 60),
         child: Text(
           title,
           textAlign: TextAlign.center,
-          style:const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              color: AppColors.white,
-              fontFamily: "Poppins"),
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       )
     ]);
