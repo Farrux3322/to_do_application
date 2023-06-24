@@ -1,50 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:to_do_application/ui/utils/colors.dart';
-import 'package:to_do_application/ui/utils/images.dart';
+
 
 import '../on_boarding_screen/on_boarding_screen.dart';
+import '../utils/colors.dart';
+import '../utils/images.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-
-  Future<void> _init()async{
-    await Future.delayed(const Duration(seconds: 3),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=> const OnBoardingScreen()));
-    });
-
-  }
-
-  @override
-  void initState() {
-    _init();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
 
+    _navigateToFirstScreen(context);
+
     return Scaffold(
-        backgroundColor: AppColors.background,
-      body: Center(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.C_1253AA, AppColors.C_05243E],
+          ),
+        ),
         child: Column(
           children: [
-            SizedBox(height: 143.h,),
-            Image.asset(AppImages.appLogo,width: 100.w,height: 100.w,),
-            SizedBox(height: 23.h,),
-            const Text("DO IT",style: TextStyle(fontSize: 36,fontWeight: FontWeight.w400,color: AppColors.white,fontFamily: "Darumadrop One"),),
-            SizedBox(height: 228.h,),
-            const Text("v 1.0.0",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500,color: AppColors.white,fontFamily: "Poppins"),),
+            Padding(
+              padding:  EdgeInsets.only(
+                top: 200.h,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Image.asset(
+                  AppImages.done,
+                  height: 100.h,
+                  width: 100.w,
+                ),
+              ),
+            ),
+            SizedBox(height: 30.h,),
+            Text(
+              "DO IT",
+              style:
+              TextStyle(fontFamily: "DarumadropOne",fontWeight: FontWeight.w500,fontSize: 36.sp, color: AppColors.white),
+            ),
+            SizedBox(height: 300.h,),
+            Text(
+              "v 1.0.0",
+              style:
+              TextStyle(fontWeight: FontWeight.w400,fontSize: 18.sp,color: AppColors.white),
+            ),
           ],
         ),
       ),
     );
+  }
+  void _navigateToFirstScreen(BuildContext context) async {
+    Future.delayed( const Duration(seconds: 3), () {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) {
+            return FirstScreen();
+          }));
+    });
   }
 }

@@ -1,17 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/colors.dart';
 
 
-class CalendarScreen extends StatefulWidget {
-  CalendarScreen({super.key});
+class PlanningScreen extends StatefulWidget {
+  PlanningScreen({super.key});
 
   @override
-  State<CalendarScreen> createState() => _CalendarScreenState();
+  State<PlanningScreen> createState() => _PlanningScreenState();
 }
 
-class _CalendarScreenState extends State<CalendarScreen> {
+class _PlanningScreenState extends State<PlanningScreen> {
   @override
   Widget build(BuildContext context) {
 
@@ -33,7 +34,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Icon(
-                  Icons.calendar_month_outlined,
+                  CupertinoIcons.text_badge_checkmark,
                   size: 100,
                   color: AppColors.white,
                 ),

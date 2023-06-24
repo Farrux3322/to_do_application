@@ -1,105 +1,104 @@
 import 'package:flutter/material.dart';
+import 'package:login_screen_homework/ui/on_boarding_screen/widgets/center_dots.dart';
+import 'package:login_screen_homework/ui/on_boarding_screen/widgets/page_item.dart';
+import 'package:login_screen_homework/ui/tabs_box.dart';
+import 'package:login_screen_homework/ui/widgets/global_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:to_do_application/ui/on_boarding_screen/widgets/center_dots.dart';
-import 'package:to_do_application/ui/on_boarding_screen/widgets/page_item.dart';
-import 'package:to_do_application/ui/sign_in_screen/sign_in_screen.dart';
-import 'package:to_do_application/ui/tabs_box.dart';
-import 'package:to_do_application/ui/utils/colors.dart';
-import 'package:to_do_application/ui/utils/images.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
-class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({Key? key}) : super(key: key);
+import '../utils/colors.dart';
+import '../utils/images.dart';
+
+
+class FirstScreen extends StatefulWidget {
+  FirstScreen({super.key});
 
   @override
-  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+  State<FirstScreen> createState() => _FirstScreenState();
 }
 
-class _OnBoardingScreenState extends State<OnBoardingScreen> {
+class _FirstScreenState extends State<FirstScreen> {
   int pageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-      body: Padding(
-        padding: const EdgeInsets.only(top: 92),
-        child: Center(
-          child: Column(
-            children: [
-              Expanded(
-                flex: 5,
-                child: PageView(
-                  physics: const BouncingScrollPhysics(),
-                  onPageChanged: (pageIndexInValue) {
-                    pageIndex = pageIndexInValue;
-                    setState(() {});
-                  },
-                  children: const [
-                    PageItem(
-                        imagePath: AppImages.planImage,
-                        title:
-                            "Plan your tasks to do, that way you’ll stay organized and you won’t skip any"),
-                    PageItem(
-                      imagePath: AppImages.weekPlanImage,
-                      title:
-                          "Make a full schedule for the whole week and stay organized and productive all days",
-                    ),
-                    PageItem(
-                      imagePath: AppImages.createTeamImage,
-                      title:
-                          "create a team task, invite people and manage your work together",
-                    ),
-                    PageItem(
-                      imagePath: AppImages.secureImage,
-                      title: "You informations are \nsecure with us",
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                  flex: 3,
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 110.h,
-                      ),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: 143.w,
-                          ),
-                          CenterDots(activeDotIndex: pageIndex),
-                          SizedBox(
-                            width: 59.w,
-                          ),
-                          pageIndex != 3
-                              ? ZoomTapAnimation(
-                            onTap: (){
-                              pageIndex++;
-                            },
-                                child: Image.asset(
-                                    AppImages.nextButton,
-                                    width: 90.w,
-                                    height: 90.h,
-                                  ),
-                              )
-                              : ZoomTapAnimation(
-                            onTap: (){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const SignInScreen()));
-                            },
-                                child: Image.asset(
-                                    AppImages.doneButton,
-                                    width: 90.w,
-                                    height: 90.h,
-                                  ),
-                              ),
-                        ],
-                      ),
-                    ],
-                  )),
-            ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.C_1253AA, AppColors.C_05243E],
           ),
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: PageView(
+                onPageChanged: (pageIndexInValue) {
+                  setState(() {
+                    pageIndex = pageIndexInValue;
+                  });
+                  print("CURRENT PAGE INDEX:$pageIndexInValue");
+                },
+                children: const [
+                  OnBoardingScreenPage(
+                      text:
+                      """Plan your tasks to do, that\n way you’ll stay organized\n   and you won’t skip any""",
+                      image: AppImages.write),
+                  OnBoardingScreenPage(
+                      text: """  Make a full schedule for
+the whole week and stay
+organized and productive\n                 all days""",
+                      image: AppImages.calendar),
+                  OnBoardingScreenPage(
+                      text:
+                      """create a team task, invite\npeople and manage your\n\t\t\t\t\t\t\t\t\t\t\t\twork together""",
+                      image: AppImages.population),
+                  OnBoardingScreenPage(text: """"You informations are
+       secure with us""", image: AppImages.security),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 115.h, left: 145.w),
+                  child: Row(
+                    children: [
+                      CenterDots(activeDotIndex: pageIndex),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 105.h, left: 40.w),
+                  child: NavigateButton(
+                    icon: Icon(
+                      pageIndex == 3 ? (Icons.done) : (Icons.arrow_forward),
+                      size: 35.sp,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        pageIndex++;
+                      });
+                      if (pageIndex == 4) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return TabsBox();
+                            },
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+          ],
         ),
       ),
     );

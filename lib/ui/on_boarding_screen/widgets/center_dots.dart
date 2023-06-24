@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../utils/colors.dart';
 
 class CenterDots extends StatelessWidget {
@@ -23,10 +24,10 @@ class CenterDots extends StatelessWidget {
   Widget activeDot() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 2),
-      width: 33.w,
-      height: 7.h,
-      decoration:  BoxDecoration(
-        borderRadius: BorderRadius.circular(10.r),
+      width: 33,
+      height: 7,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
         color: AppColors.white,
       ),
     );
@@ -35,11 +36,11 @@ class CenterDots extends StatelessWidget {
   Widget inActiveDot() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 2),
-      width: 18,
-      height: 5,
+      width: 18.w,
+      height: 7.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.r),
-        color: AppColors.white,
+        borderRadius: BorderRadius.circular(10),
+        color: AppColors.white.withOpacity(0.32),
       ),
     );
   }

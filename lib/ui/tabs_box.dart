@@ -1,69 +1,62 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_application/ui/calendar_screen/calendar_screen.dart';
-import 'package:to_do_application/ui/settings_screen/settings.dart';
-import 'package:to_do_application/ui/tasks_screen/tasks_screen.dart';
-import 'package:to_do_application/ui/utils/colors.dart';
+import 'package:login_screen_homework/ui/settings_screen/settings.dart';
+import 'package:login_screen_homework/ui/sign_in_screen/sign_in_screen.dart';
+import 'package:login_screen_homework/ui/utils/colors.dart';
 
+import 'calendar_screen/calendar_screen.dart';
 import 'home_screen/home_screen.dart';
 
 class TabsBox extends StatefulWidget {
-  const TabsBox({Key? key}) : super(key: key);
+  TabsBox({Key? key}) : super(key: key);
 
   @override
   State<TabsBox> createState() => _TabsBoxState();
+
 }
 
 class _TabsBoxState extends State<TabsBox> {
-
-  int currentTabIndex = 0;
+  int _currentIndex = 0;
 
   List<Widget> screens = [];
 
   @override
   void initState() {
-    screens.add(const HomeScreen());
-    screens.add(const TasksScreen());
-    screens.add(const CalendarScreen());
-    screens.add(const SettingsScreen());
+    screens.add(HomeScreen());
+    screens.add(SignIn());
+    // screens.add(PlanningScreen());
+    screens.add(CalendarScreen());
+    screens.add(SettingsScreen());
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-        body: screens[currentTabIndex],
-        bottomNavigationBar: SizedBox(
-          height: 80,
-          child: BottomNavigationBar(
-            backgroundColor: AppColors.background,
-            selectedLabelStyle: TextStyle(color: AppColors.white),
-            unselectedLabelStyle: TextStyle(color: AppColors.white),
-            selectedIconTheme: IconThemeData(
-              size: 36,
-              color: AppColors.white
-            ),
-            unselectedIconTheme: IconThemeData(
-                size: 24,
-                color: AppColors.white.withOpacity(0.5)
-            ),
-            onTap: (index){
-              setState(() {
-              });
-              currentTabIndex = index;
-            },
-            currentIndex: currentTabIndex,
-            elevation: 20,
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home,),label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.dock_rounded,),label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined,),label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.settings,),label: ""),
-            ],
-          ),
+      backgroundColor: AppColors.C_05243E,
+      body: screens[_currentIndex],
+      bottomNavigationBar: SizedBox(
+        height: 110,
+        child: BottomNavigationBar(
+          backgroundColor: AppColors.C_05243E,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          unselectedItemColor: AppColors.white,
+          selectedItemColor: Colors.greenAccent,
+          currentIndex: _currentIndex,
+          onTap: ( index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.house,size: 30),label:"____"),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.text_badge_checkmark,size: 30,),label:"____"),
+            BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined,size: 30,),label:"____"),
+            BottomNavigationBarItem(icon: Icon(Icons.settings,size: 30,),label:"____"),
+          ],
         ),
+      ),
     );
   }
 }

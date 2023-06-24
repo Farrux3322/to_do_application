@@ -1,99 +1,134 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:to_do_application/ui/sign_in_screen/widgets/universal_input_view.dart';
-import 'package:to_do_application/ui/sign_up_screen/sign_up_screen.dart';
-import 'package:to_do_application/ui/utils/colors.dart';
-import 'package:to_do_application/ui/utils/images.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:login_screen_homework/ui/widgets/global_sign_button.dart';
+import 'package:login_screen_homework/ui/widgets/global_social.dart';
+import 'package:login_screen_homework/ui/widgets/global_textfield.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+
+import '../on_boarding_screen/on_boarding_screen.dart';
+import '../utils/colors.dart';
+import '../utils/images.dart';
+
+class SignIn extends StatefulWidget {
+  SignIn({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: const Text("Sign in Screen"),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Expanded(child: ListView(
-            physics: const BouncingScrollPhysics(),
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 26,vertical: 10),
-                child: Column(
-                  children: [
-                    Image.asset(AppImages.appLogo,width: 100.w,height: 100.w,),
-                    SizedBox(height: 25.h,),
-                    Text("Welcome Back to DO IT ",style: TextStyle(fontSize: 25.spMin,fontWeight: FontWeight.w400,color: AppColors.white,fontFamily: "Darumadrop One"),),
-                    SizedBox(height: 6.h,),
-                    Text("Have an other productive day !",style: TextStyle(fontSize: 18.spMin,fontWeight: FontWeight.w500,color: AppColors.white,fontFamily: "Poppins"),),
-                    SizedBox(height: 48.h,),
-                    UniversalInputView(icon: const Icon(Icons.email,color: AppColors.black,),hintText: "E-mail", inputType: TextInputType.emailAddress, obscureText: false, onChanged: (v){}),
-                    SizedBox(height: 20.h,),
-                    UniversalInputView(icon:  const Icon(Icons.lock,color: AppColors.black,),hintText: "Password", inputType: TextInputType.visiblePassword, obscureText: true, onChanged: (v){}),
-                    SizedBox(height: 10.h,),
-                    Row(
-                      children: [
-                        const Spacer(),
-                        ZoomTapAnimation(child: Text("forget password?",textAlign: TextAlign.end,style: TextStyle(fontSize: 14.spMin,fontWeight: FontWeight.w500,color: AppColors.white.withOpacity(.8),fontFamily: "Poppins",decoration: TextDecoration.underline,),)),
-                        SizedBox(width: 24.w,),
-                      ],
-                    ),
-                    SizedBox(height: 16.h,),
-                    ZoomTapAnimation(
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 26),
-                        height: 50.h,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            borderRadius:BorderRadius.circular(10),
-                            color: AppColors.c_0EA5E9
-                        ),
-                        child: const Center(child: Text("sign in",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,color: AppColors.white,fontFamily: "Poppins"),),),
-                      ),
-                    ),
-                    SizedBox(height: 19.h,),
-                    Center(child:
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text("Don’t have an account? ",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: AppColors.white,fontFamily: "Poppins"),),
-                        ZoomTapAnimation(
-                            onTap: (){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const SignUpScreen()));
-                            },
-                            child: const Text("sign up",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: AppColors.c_63D9F3,fontFamily: "Poppins"),))
-                      ],
-                    ),),
-                    SizedBox(height: 48.h,),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 26),
-                      child: Row(
-                        children: [
-                          const Text("Sign In with:",style: TextStyle(fontSize: 14,fontFamily: "Poppins",color: AppColors.white,fontWeight: FontWeight.w400),),
-                          SizedBox(width: 17.w,),
-                          ZoomTapAnimation(child: Image.asset(AppImages.appleImage,width: 60.w,height: 60.w,)),
-                          SizedBox(width: 21.w,),
-                          ZoomTapAnimation(child: Image.asset(AppImages.googleImage,width: 60.w,height: 60.w,)),
-                        ],
-                      ),
-                    )
-                  ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.C_1253AA, AppColors.C_05243E],
+          ),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding:  EdgeInsets.only(
+                top: 100.h,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Image.asset(
+                  AppImages.done,
+                  height: 100.h,
+                  width: 100.w,
                 ),
               ),
-            ],
-          ))
-        ],
-      )
+            ),
+            SizedBox(height: 30.h,),
+            Padding(
+              padding: const EdgeInsets.only(left: 26),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Welcome Back to",
+                        style:
+                        TextStyle(fontWeight: FontWeight.w500,fontSize: 25.sp, color: AppColors.white),
+                      ),
+                      SizedBox(width: 10,),
+                      Text(
+                        "DO IT ",
+                        style:
+                        TextStyle(fontFamily: "DarumadropOne",fontWeight: FontWeight.w500,fontSize: 25.sp, color: AppColors.white),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "Have an other productive day !",
+                    style:
+                    TextStyle(fontWeight: FontWeight.w500,fontSize: 18.sp, color: AppColors.white),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20,),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 26),
+              child: Column(
+                children: [
+                  GlobalTextField(hintText: "Email", keyboardType: TextInputType.emailAddress, textInputAction: TextInputAction.next, prefixIcon: Icons.email, caption: "Email Adress"),
+                  GlobalTextField(hintText: "Paaword", keyboardType: TextInputType.visiblePassword, textInputAction: TextInputAction.done, prefixIcon: Icons.lock, caption: "Password"),
+                  SizedBox(height: 10,),
+                  Align(
+                    alignment: Alignment.centerRight,
+                      child: Text("forget password?",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.grey),)),
+                  SizedBox(height: 16,),
+                  SignButton(text: "sign in", onTap: (){}),
+                  SizedBox(height: 20,),
+                  RichText(
+                    text: TextSpan(
+                      text: "Don't have an account? ",
+                      style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: 16,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "sign up",
+                          style: TextStyle(
+                            color: AppColors.C_0EA5E9,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                            },
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 45),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                      child: Row(
+                        children: [
+                          Text("Sign In with:",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14,color: AppColors.white),),
+                          SizedBox(width: 31,),
+                          SocialButton(icon: SvgPicture.asset(AppImages.apple,),onTap: (){}),
+                          SizedBox(width: 21,),
+                          SocialButton(icon: SvgPicture.asset(AppImages.google,),onTap: (){}),
+                        ],
+                      ))
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

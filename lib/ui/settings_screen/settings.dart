@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_application/ui/utils/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../utils/colors.dart';
+
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  SettingsScreen({super.key});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -11,11 +14,33 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: Text("Settings Screen"),
-        centerTitle: true,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.C_1253AA, AppColors.C_05243E],
+          ),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding:  EdgeInsets.only(
+                top: 300.h,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Icon(
+                  Icons.settings,
+                  size: 100,
+                  color: AppColors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
