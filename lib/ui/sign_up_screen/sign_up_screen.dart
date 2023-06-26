@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:to_do_application/ui/sign_in_screen/sign_in_screen.dart';
-import 'package:to_do_application/ui/tabs_box.dart';
+import 'package:to_do_application/ui/app_routes.dart';
+
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../sign_in_screen/widgets/universal_input_view.dart';
@@ -100,8 +100,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     ZoomTapAnimation(
                       onTap: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (_) => const TabsBox()));
+                        Navigator.pushReplacementNamed(
+                            context, RoutesName.tabsBox);
                       },
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 26),
@@ -135,10 +135,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           ZoomTapAnimation(
                               onTap: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (_) => const SignInScreen()));
+                                Navigator.pushReplacementNamed(
+                                    context, RoutesName.signInScreen);
                               },
                               child: const Text(
                                 "sign in",
