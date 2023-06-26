@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:to_do_application/ui/app_routes.dart';
 import 'package:to_do_application/ui/sign_in_screen/widgets/universal_input_view.dart';
-import 'package:to_do_application/ui/sign_up_screen/sign_up_screen.dart';
 import 'package:to_do_application/ui/utils/colors.dart';
 import 'package:to_do_application/ui/utils/images.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
@@ -21,7 +21,10 @@ class _SignInScreenState extends State<SignInScreen> {
         appBar: AppBar(
           systemOverlayStyle:
               const SystemUiOverlayStyle(statusBarColor: AppColors.background),
-          title: Text("Sign in Screen",style: Theme.of(context).textTheme.titleLarge,),
+          title: Text(
+            "Sign in Screen",
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           centerTitle: true,
         ),
         body: Column(
@@ -137,11 +140,8 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                             ZoomTapAnimation(
                                 onTap: () {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) =>
-                                              const SignUpScreen()));
+                                  Navigator.pushReplacementNamed(
+                                      context, RoutesName.signUpScreen);
                                 },
                                 child: const Text(
                                   "sign up",

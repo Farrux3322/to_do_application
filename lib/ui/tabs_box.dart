@@ -38,9 +38,9 @@ class _TabsBoxState extends State<TabsBox> {
           height: 80,
           child: BottomNavigationBar(
             backgroundColor: AppColors.background,
-            selectedLabelStyle: TextStyle(color: AppColors.white),
-            unselectedLabelStyle: TextStyle(color: AppColors.white),
-            selectedIconTheme: IconThemeData(
+            selectedLabelStyle: const TextStyle(color: AppColors.white),
+            unselectedLabelStyle: const TextStyle(color: AppColors.white),
+            selectedIconTheme: const IconThemeData(
               size: 36,
               color: AppColors.white
             ),
