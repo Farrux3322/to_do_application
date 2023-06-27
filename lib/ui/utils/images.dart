@@ -10,5 +10,9 @@ abstract class AppImages{
   static const String doneButton = "assets/images/done_button.png";
   static const String appleImage = "assets/images/apple_image.png";
   static const String googleImage = "assets/images/google_image.png";
+  static const String down = "assets/images/down.png";
+
+
+  static const String search = "assets/svg/search.svg";
 
 }
