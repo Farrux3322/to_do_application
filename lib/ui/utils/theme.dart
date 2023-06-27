@@ -80,7 +80,7 @@ class AppTheme {
       labelSmall: TextStyle(
           color: AppColors.textColor,
           fontSize: 11.sp,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w400,
           fontFamily: "Poppins"),
       //body
       bodySmall: TextStyle(
