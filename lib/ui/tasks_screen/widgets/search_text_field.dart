@@ -18,7 +18,7 @@ class SearchTextField extends StatefulWidget {
   final bool obscureText;
   final TextInputType inputType;
   final ValueChanged onChanged;
-  final String icon;
+  final Icon icon;
 
   @override
   State<SearchTextField> createState() => _SearchTextFieldState();
@@ -50,7 +50,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
           color: Colors.white,
         ),
         decoration: InputDecoration(
-          suffixIcon: Icon(Icons.search,color: Colors.grey,),
+          suffixIcon: widget.icon,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 12,
             vertical: 16,
