@@ -8,6 +8,7 @@ import 'package:to_do_application/ui/sign_in_screen/sign_in_screen.dart';
 import 'package:to_do_application/ui/sign_up_screen/sign_up_screen.dart';
 import 'package:to_do_application/ui/splash_screen/splash_screen.dart';
 import 'package:to_do_application/ui/tabs_box.dart';
+import 'package:to_do_application/ui/tasks_screen/add_todo.dart';
 import 'package:to_do_application/ui/tasks_screen/tasks_screen.dart';
 
 class RoutesName {
@@ -20,6 +21,7 @@ class RoutesName {
   static const String signUpScreen = "/sign_up_screen";
   static const String tasksScreen = "/tasks_screen";
   static const String tabsBox = "/tabs_box";
+  static const String addToDo = "/add_todo";
 }
 
 class AppRoutes {
@@ -44,6 +46,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const TasksScreen());
       case RoutesName.tabsBox:
         return MaterialPageRoute(builder: (context) => const TabsBox());
+      case RoutesName.addToDo:
+        return MaterialPageRoute(builder: (context) => const AddToDo());
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(
