@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:login_screen_homework/ui/on_boarding_screen/widgets/center_dots.dart';
 import 'package:login_screen_homework/ui/on_boarding_screen/widgets/page_item.dart';
 import 'package:login_screen_homework/ui/sign_in_screen/sign_in_screen.dart';
-import 'package:login_screen_homework/ui/tabs_box.dart';
 import 'package:login_screen_homework/ui/widgets/global_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

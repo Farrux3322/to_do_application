@@ -35,7 +35,7 @@ class _DescriptionState extends State<Description> {
           child: TextField(
             controller: _textController,
             cursorColor: AppColors.white,
-            textInputAction: TextInputAction.search,
+            textInputAction: TextInputAction.done,
             keyboardType: TextInputType.text,
             style: TextStyle(
               fontWeight: FontWeight.w500,

@@ -86,64 +86,68 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(left: 24.w,right: 24.w),
                       child: Row(
                         children: [
-                          Container(
-                            height: 106.h,
-                            width: 218.w,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.r),
-                                color: AppColors.white),
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Design Meeting",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14.sp,
-                                        color: Colors.black),
-                                  ),
-                                  Text(
-                                    "Tomorrow | 10:30pm",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 10.sp,
-                                        color: Colors.black),
-                                  ),
-                                ],
+                          ZoomTapAnimation(
+                            child: Container(
+                              height: 106.h,
+                              width: 218.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.r),
+                                  color: AppColors.white),
+                              child: Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Design Meeting",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14.sp,
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      "Tomorrow | 10:30pm",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 10.sp,
+                                          color: Colors.black),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                           SizedBox(
                             width: 10.w,
                           ),
-                          Container(
-                            height: 106.h,
-                            width: 218.w,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.r),
-                                color: AppColors.white),
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Design Meeting",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 14.sp,
-                                        color: Colors.black),
-                                  ),
-                                  Text(
-                                    "Tomorrow | 10:30pm",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 10.sp,
-                                        color: Colors.black),
-                                  ),
-                                ],
+                          ZoomTapAnimation(
+                            child: Container(
+                              height: 106.h,
+                              width: 218.w,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.r),
+                                  color: AppColors.white),
+                              child: Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Design Meeting",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14.sp,
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      "Tomorrow | 10:30pm",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 10.sp,
+                                          color: Colors.black),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
