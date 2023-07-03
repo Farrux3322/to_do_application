@@ -6,7 +6,6 @@ import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../utils/colors.dart';
 
-
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
@@ -84,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 24.w),
+                      padding: EdgeInsets.only(left: 24.w,right: 24.w),
                       child: Row(
                         children: [
                           Container(
@@ -164,9 +163,26 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: AppColors.white),
                         )),
                   ),
-                  const TasksScreen(
-                      text: "Client meeting", text2: "Tomorrow | 10:30 pm"),
-                  const TasksScreen(text: "Client meeting", text2: "Tomorrow"),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          TasksScreen(
+                              text: "Client meeting",
+                              text2: "Tomorrow | 10:30 pm"),
+                          TasksScreen(
+                              text: "Client meeting",
+                              text2: "Tomorrow | 10:30 pm"),
+                          TasksScreen(
+                              text: "Client meeting",
+                              text2: "Tomorrow | 10:30 pm"),
+                          TasksScreen(
+                              text: "Client meeting",
+                              text2: "Tomorrow | 10:30 pm"),
+                        ],
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.only(top: 10.h, left: 24.w),
                     child: Align(
@@ -182,18 +198,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Expanded(
                     child: SingleChildScrollView(
-                      child: Column(
-                          children:[
-                            TasksScreen(
-                                text: "Client meeting", text2: "Tomorrow | 10:30pm"),
-                            TasksScreen(
-                                text: "Client meeting", text2: "Tomorrow | 10:30pm"),
-                            TasksScreen(
-                                text: "Client meeting", text2: "Tomorrow | 10:30pm"),
-                            TasksScreen(
-                                text: "Client meeting", text2: "Tomorrow | 10:30pm"),
-                          ]
-                      ),
+                      child: Column(children: [
+                        TasksScreen(
+                            text: "Client meeting",
+                            text2: "Tomorrow | 10:30pm"),
+                        TasksScreen(
+                            text: "Client meeting",
+                            text2: "Tomorrow | 10:30pm"),
+                        TasksScreen(
+                            text: "Client meeting",
+                            text2: "Tomorrow | 10:30pm"),
+                        TasksScreen(
+                            text: "Client meeting",
+                            text2: "Tomorrow | 10:30pm"),
+                      ]),
                     ),
                   ),
                 ],

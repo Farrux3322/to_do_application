@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 
-import '../utils/colors.dart';
+import '../../utils/colors.dart';
 
-class GlobalTextField extends StatefulWidget {
+class TaskField extends StatefulWidget {
   final String hintText;
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
   final IconData prefixIcon;
   final String caption;
 
-  const GlobalTextField({
+  const TaskField({
     Key? key,
     required this.hintText,
     required this.keyboardType,
     required this.textInputAction,
     required this.prefixIcon,
-    required this.caption, errorText,
+    required this.caption,
   }) : super(key: key);
 
   @override
-  _GlobalTextFieldState createState() => _GlobalTextFieldState();
+  _TaskFieldState createState() => _TaskFieldState();
 }
 
-class _GlobalTextFieldState extends State<GlobalTextField> {
+class _TaskFieldState extends State<TaskField> {
   bool _isPasswordVisible = false;
 
   @override
@@ -37,17 +37,22 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
               widget.caption,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),
         SizedBox(height: 5,),
         TextField(
+          style: TextStyle(color: AppColors.white),
           decoration: InputDecoration(
+
+            contentPadding:
+            EdgeInsets.only(left: 16,top: 10,bottom: 10),
             hintText: widget.hintText,
+            hintStyle: TextStyle(color: AppColors.white),
             prefixIcon: Icon(
               widget.prefixIcon,
-              color: AppColors.black,
+              color: Colors.white,
             ),
             suffixIcon: widget.keyboardType == TextInputType.visiblePassword
                 ? IconButton(
@@ -56,7 +61,7 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
                 _isPasswordVisible
                     ? Icons.visibility
                     : Icons.visibility_off,
-                color: AppColors.black,
+                color: Colors.grey,
               ),
               onPressed: () {
                 setState(() {
@@ -66,11 +71,11 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
             )
                 : null,
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.white, width: 1),
+              borderSide: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(10),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.white, width: 1),
+              borderSide: BorderSide(color: Colors.green, width: 1),
               borderRadius: BorderRadius.circular(10),
             ),
             errorBorder: OutlineInputBorder(
@@ -78,11 +83,11 @@ class _GlobalTextFieldState extends State<GlobalTextField> {
               borderRadius: BorderRadius.circular(10),
             ),
             border: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.white, width: 1),
+              borderSide: BorderSide(color: Colors.grey, width: 1),
               borderRadius: BorderRadius.circular(10),
             ),
-            filled: true,
-            fillColor: AppColors.white,
+              filled: true,
+              fillColor: AppColors.C_102D53,
           ),
           keyboardType: widget.keyboardType,
           textInputAction: widget.textInputAction,

@@ -19,7 +19,7 @@ class _TasksScreenState extends State<TasksScreen> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 5.h),
       child: Container(
-        height: 64.h,
+        height: 51.h,
         width: 375.w,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.r), color: AppColors.white),
@@ -27,7 +27,7 @@ class _TasksScreenState extends State<TasksScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.only(left:20.w,top: 16.h,bottom: 16.h),
+              padding: EdgeInsets.only(left:20.w,top: 8.h,bottom: 8.h),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +42,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   Text(
                     widget.text2,
                     style: TextStyle(
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w300,
                         fontSize: 10.sp,
                         color: Colors.black),
                   ),

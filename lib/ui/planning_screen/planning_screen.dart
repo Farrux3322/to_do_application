@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
+import 'package:login_screen_homework/ui/planning_screen/widgets/search_button.dart';
 
+import '../home_screen/widgets/tasks_screen.dart';
 import '../utils/colors.dart';
-
 
 class PlanningScreen extends StatefulWidget {
   PlanningScreen({super.key});
@@ -16,7 +15,6 @@ class PlanningScreen extends StatefulWidget {
 class _PlanningScreenState extends State<PlanningScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -28,22 +26,26 @@ class _PlanningScreenState extends State<PlanningScreen> {
         ),
         child: Column(
           children: [
-            Padding(
-              padding:  EdgeInsets.only(
-                top: 300.h,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 350,right: 29),
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: ZoomTapAnimation(
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(50),color: AppColors.C_0EA5E9),
-                      child: Icon(Icons.add,color: AppColors.white,),
-                    ),
-                  )
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 24,vertical: 55),
+                child: Search()),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 24),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                  child: Text("Tasks List",style: TextStyle(fontSize: 16,color: AppColors.white),)),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: 21,),
+                    TasksScreen(text: "Client meeting", text2: "Tomorrow | 10:30 pm"),
+                    SizedBox(height: 22,),
+                    TasksScreen(text: "Client meeting", text2: "Tomorrow | 10:30 pm"),
+                    SizedBox(height: 22,),
+                    TasksScreen(text: "Client meeting", text2: "Tomorrow | 10:30 pm"),
+                  ],
                 ),
               ),
             ),

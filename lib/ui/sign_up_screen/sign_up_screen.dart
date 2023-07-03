@@ -1,96 +1,135 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-//
-// import '../sign_in_screen/widgets/universal_input_view.dart';
-// import '../utils/colors.dart';
-// import '../utils/images.dart';
-//
-// class SignUpScreen extends StatefulWidget {
-//   const SignUpScreen({Key? key}) : super(key: key);
-//
-//   @override
-//   State<SignUpScreen> createState() => _SignUpScreenState();
-// }
-//
-// class _SignUpScreenState extends State<SignUpScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: AppColors.background,
-//       appBar: AppBar(
-//         title: const Text("Sign Up Screen"),
-//         centerTitle: true,
-//       ),
-//       body: Column(
-//         children: [
-//           Expanded(child: ListView(
-//             physics: const BouncingScrollPhysics(),
-//             children: [
-//               Padding(
-//                 padding: const EdgeInsets.symmetric(horizontal: 26,vertical: 10),
-//                 child: Column(
-//                   children: [
-//                     Image.asset(AppImages.appLogo,width: 100.w,height: 100.w,),
-//                     SizedBox(height: 25.h,),
-//                     Text("Welcome to DO IT",style: TextStyle(fontSize: 25.spMin,fontWeight: FontWeight.w400,color: AppColors.white,fontFamily: "Darumadrop One"),),
-//                     SizedBox(height: 6.h,),
-//                     Text("create an account and Join us now!",style: TextStyle(fontSize: 18.spMin,fontWeight: FontWeight.w500,color: AppColors.white,fontFamily: "Poppins"),),
-//                     SizedBox(height: 48.h,),
-//                     UniversalInputView(icon: const Icon(Icons.person_2,color: AppColors.black,),hintText: "Full Name", inputType: TextInputType.text, obscureText: false, onChanged: (v){}),
-//                     SizedBox(height: 10.h,),
-//                     UniversalInputView(icon: const Icon(Icons.email,color: AppColors.black,),hintText: "E-mail", inputType: TextInputType.emailAddress, obscureText: false, onChanged: (v){}),
-//                     SizedBox(height: 10.h,),
-//                     UniversalInputView(icon:  const Icon(Icons.lock,color: AppColors.black,),hintText: "Password", inputType: TextInputType.visiblePassword, obscureText: true, onChanged: (v){}),
-//                     SizedBox(height: 16.h,),
-//                     ZoomTapAnimation(
-//                       onTap: (){
-//                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const TabsBox()));
-//                       },
-//                       child: Container(
-//                         margin: const EdgeInsets.symmetric(horizontal: 26),
-//                         height: 50.h,
-//                         width: double.infinity,
-//                         decoration: BoxDecoration(
-//                             borderRadius:BorderRadius.circular(10),
-//                             color: AppColors.c_0EA5E9
-//                         ),
-//                         child: const Center(child: Text("sign up",style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,color: AppColors.white,fontFamily: "Poppins"),),),
-//                       ),
-//                     ),
-//                     SizedBox(height: 19.h,),
-//                      Center(child:
-//                     Row(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         const Text("Already have an account? ",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: AppColors.white,fontFamily: "Poppins"),),
-//                         ZoomTapAnimation(
-//                             onTap: (){
-//                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=>const SignInScreen()));
-//                             },
-//                             child: const Text("sign in",style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,color: AppColors.c_63D9F3,fontFamily: "Poppins"),))
-//                       ],
-//                     ),),
-//                     SizedBox(height: 48.h,),
-//                     Padding(
-//                       padding: const EdgeInsets.symmetric(horizontal: 26),
-//                       child: Row(
-//                         children: [
-//                           const Text("Sign In with:",style: TextStyle(fontSize: 14,fontFamily: "Poppins",color: AppColors.white,fontWeight: FontWeight.w400),),
-//                           SizedBox(width: 17.w,),
-//                           ZoomTapAnimation(child: Image.asset(AppImages.appleImage,width: 60.w,height: 60.w,)),
-//                           SizedBox(width: 21.w,),
-//                           ZoomTapAnimation(child: Image.asset(AppImages.googleImage,width: 60.w,height: 60.w,)),
-//                         ],
-//                       ),
-//                     )
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           ))
-//         ],
-//       ),
-//     );
-//   }
-// }
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:login_screen_homework/ui/sign_in_screen/sign_in_screen.dart';
+import 'package:login_screen_homework/ui/widgets/global_sign_button.dart';
+import 'package:login_screen_homework/ui/widgets/global_social.dart';
+import 'package:login_screen_homework/ui/widgets/global_textfield.dart';
+
+
+import '../utils/colors.dart';
+import '../utils/images.dart';
+
+class SignUp extends StatefulWidget {
+  SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [AppColors.C_1253AA, AppColors.C_05243E],
+          ),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding:  EdgeInsets.only(
+                top: 100.h,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Image.asset(
+                  AppImages.done,
+                  height: 100.h,
+                  width: 100.w,
+                ),
+              ),
+            ),
+            SizedBox(height: 30.h,),
+            Padding(
+              padding: const EdgeInsets.only(left: 26),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Welcome to",
+                        style:
+                        TextStyle(fontWeight: FontWeight.w500,fontSize: 25.sp, color: AppColors.white),
+                      ),
+                      SizedBox(width: 10,),
+                      Text(
+                        "DO IT ",
+                        style:
+                        TextStyle(fontFamily: "DarumadropOne",fontWeight: FontWeight.w500,fontSize: 25.sp, color: AppColors.white),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "Have an other productive day !",
+                    style:
+                    TextStyle(fontWeight: FontWeight.w500,fontSize: 18.sp, color: AppColors.white),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20,),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 26),
+              child: Column(
+                children: [
+                  GlobalTextField(hintText: "Full Name", keyboardType: TextInputType.emailAddress, textInputAction: TextInputAction.next, prefixIcon: Icons.person, caption: "Full Name"),
+                  GlobalTextField(hintText: "Email", keyboardType: TextInputType.emailAddress, textInputAction: TextInputAction.next, prefixIcon: Icons.email, caption: "Email Adress"),
+                  GlobalTextField(hintText: "Paaword", keyboardType: TextInputType.visiblePassword, textInputAction: TextInputAction.done, prefixIcon: Icons.lock, caption: "Password"),
+                  SizedBox(height: 20,),
+                  SignButton(text: "sign up", onTap: (){}),
+                  SizedBox(height: 20,),
+                  RichText(
+                    text: TextSpan(
+                      text: "Already have an account? ",
+                      style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: 16,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "sign in",
+                          style: TextStyle(
+                            color: AppColors.C_0EA5E9,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                                return SignIn();
+                              }));
+                            },
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 45),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Row(
+                        children: [
+                          Text("Sign In with:",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14,color: AppColors.white),),
+                          SizedBox(width: 31,),
+                          SocialButton(icon: SvgPicture.asset(AppImages.apple,),onTap: (){}),
+                          SizedBox(width: 21,),
+                          SocialButton(icon: SvgPicture.asset(AppImages.google,),onTap: (){}),
+                        ],
+                      ))
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
