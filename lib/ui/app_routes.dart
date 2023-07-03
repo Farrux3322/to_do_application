@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_application/ui/calendar_screen/calendar_screen.dart';
-import 'package:to_do_application/ui/home_screen/home_screen.dart';
 import 'package:to_do_application/ui/on_boarding_screen/on_boarding_screen.dart';
-import 'package:to_do_application/ui/settings_screen/settings.dart';
 import 'package:to_do_application/ui/sign_in_screen/sign_in_screen.dart';
 import 'package:to_do_application/ui/sign_up_screen/sign_up_screen.dart';
 import 'package:to_do_application/ui/splash_screen/splash_screen.dart';
-import 'package:to_do_application/ui/tabs_box.dart';
-import 'package:to_do_application/ui/tasks_screen/add_todo.dart';
-import 'package:to_do_application/ui/tasks_screen/tasks_screen.dart';
+import 'package:to_do_application/ui/tabs_box/calendar_screen/calendar_screen.dart';
+import 'package:to_do_application/ui/tabs_box/home_screen/home_screen.dart';
+import 'package:to_do_application/ui/tabs_box/settings_screen/settings.dart';
+import 'package:to_do_application/ui/tabs_box/tabs_box.dart';
+import 'package:to_do_application/ui/tabs_box/tasks_screen/add_todo.dart';
+import 'package:to_do_application/ui/tabs_box/tasks_screen/tasks_screen.dart';
 
 class RoutesName {
   static const String initial = "/";

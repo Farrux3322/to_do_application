@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:to_do_application/ui/tasks_screen/widgets/search_text_field.dart';
+import 'package:to_do_application/ui/tabs_box/tasks_screen/widgets/add_todo_text_field.dart';
 
 class AddToDo extends StatefulWidget {
   const AddToDo({Key? key}) : super(key: key);
@@ -24,14 +24,24 @@ class _AddToDoState extends State<AddToDo> {
         padding: EdgeInsets.symmetric(horizontal: 18.w),
         child: Column(
           children: [
-            Center(
-              child: SearchTextField(
-                  hintText: "task name",
-                  inputType: TextInputType.text,
-                  obscureText: false,
-                  onChanged: (v) {},
-                  icon: Icon(Icons.checklist)),
-            )
+            AddToDoField(
+              hintText: "task name",
+              inputType: TextInputType.text,
+              obscureText: false,
+              onChanged: (v) {},
+              icon: const Icon(Icons.task_sharp),
+              maxLinesCount: 1,
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+            AddToDoField(
+                hintText: "Description",
+                inputType: TextInputType.text,
+                obscureText: false,
+                onChanged: (v) {},
+                icon: const Icon(Icons.description),
+                maxLinesCount: 10),
           ],
         ),
       ),

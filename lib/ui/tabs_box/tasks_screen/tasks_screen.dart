@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do_application/ui/app_routes.dart';
-import 'package:to_do_application/ui/tasks_screen/widgets/search_text_field.dart';
-import 'package:to_do_application/ui/tasks_screen/widgets/tasks_widget.dart';
+import 'package:to_do_application/ui/tabs_box/tasks_screen/widgets/search_text_field.dart';
+import 'package:to_do_application/ui/tabs_box/tasks_screen/widgets/tasks_widget.dart';
 import 'package:to_do_application/ui/utils/colors.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
